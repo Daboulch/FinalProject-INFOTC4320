@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Trip Reservation System</title>
-    </head>
-    <body>
-        <h1>Trip Reservation System</h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} Home Page - Trip Reservation System{% endblock %}
+
+{# Removes the homelink from the home page #}
+<!-- Removes the homelink from the home page -->
+{% block home_link %}{% endblock %}
+
+{% block content %}
+    <h1>Trip Reservation System</h1>
+    <a href ="{{ url_for('reserve') }}">Reserve A Seat</a>
+    <a href ="{{ url_for('admin_login') }}">Admin Login</a>
+{% endblock %}
