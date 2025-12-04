@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        {% block home_link %}
+            <a href = "{{url_for('index')}}">Home</a>
+        {% endblock %}
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
