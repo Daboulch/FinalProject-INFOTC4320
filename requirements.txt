@@ -1,4 +1,5 @@
 flask
-pygal
-requests
+flask_sqlalchemy
 lxml
+requests
+pygal

@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
- {% block title %}Admin Login - Trip Reservation System{% endblock %}
+{% block title %}Admin Login - Trip Reservation System{% endblock %}
 
 {% block content %}
     <h1>Admin Login Page</h1>
-    <a href ="{{ url_for('admin_dashboard') }}">Goto Dashboard</a>
+    <form method="post">
+        <label>Username: <input type="text" name="username" required></label><br/>
+        <label>Password: <input type="password" name="password" required></label><br/>
+        <button type="submit">Login</button>
+    </form>
 {% endblock %}

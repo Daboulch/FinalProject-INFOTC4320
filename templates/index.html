@@ -8,6 +8,17 @@
 
 {% block content %}
     <h1>Trip Reservation System</h1>
-    <a href ="{{ url_for('reserve') }}">Reserve A Seat</a>
-    <a href ="{{ url_for('admin_login') }}">Admin Login</a>
+    <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">
+        Welcome! Reserve a seat or sign in as an adminstrator.
+    </p>
+    <div style="text-align:center; margin-top:25px;">
+        <a class = "btn" href ="{{ url_for('reserve') }}">Reserve A Seat</a>
+        <a class = "btn" href ="{{ url_for('admin_login') }}">Admin Login</a>
+    </div>
+
+    {% if seats_available is defined %}
+    <p style="text-align:center; font-size: 17px; color: #333; margin-top: 30px">
+        <strong>Seats Available:</strong> {{ seats_available }} of 48
+    </p>
+    {% endif %}
 {% endblock %}
