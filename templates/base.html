@@ -1,7 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fa;
+            color: #222;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav {
+            background: #1b3a57;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+        }
+
+        button, .btn {
+            background: #1b3a57;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        button:hover, .btn:hover {
+            background: #264a6f;
+        }
+
+        form label {
+            display: block;
+            margin: 12px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .seat-table {
+            margin: 25px auto;
+            border-collapse: collapse;
+        }
+
+        .seat-table th, .seat-table td {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #444;
+            text-align: center;
+        }
+        
+        .reserve-form {
+            width: fit-content;
+            margin: 25px auto;
+        }
+
+        .res-list li {
+            margin: 10px 0;
+            padding: 8px;
+            background: #eef3f7;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -10,6 +107,9 @@
         {% endblock %}
     </nav>
 
-    {% block content %}{% endblock %}
+    <div class ="container">
+        {% block content %}{% endblock %}
+    </div>
+
 </body>
 </html>

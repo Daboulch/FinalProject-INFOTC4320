@@ -1,7 +1,42 @@
 {% extends "base.html" %}
 
- {% block title %}Admin Dashboard - Trip Reservation System{% endblock %}
+{% block title %}Admin Dashboard - Trip Reservation System{% endblock %}
 
 {% block content %}
-    <h1>Admin Dashboard Page</h1>
+    <h1>Admin Dashboard</h1>
+
+    <h3>Total Sales: ${{ total_sales }}</h3>
+
+    <h2>Seating Chart</h2>
+    <table class = "seat-table" border="1" style="border-collapse:collapse">
+      {% for r in range(0,12) %}
+      <tr>
+        {% for c in range(0,4) %}
+        <td style="padding:8px; width:110px; text-align:center;">
+          Row {{r}} Col {{c}}<br/>
+          {% if (r, c) in seats_taken %}
+            <strong>TAKEN</strong>
+          {% else %}
+            <em>Available</em>
+          {% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+
+    <h2>Reservations</h2>
+    <ul class="res-list">
+      {% for res in reservations %}
+      <li>
+        ID {{ res['id'] }} - {{ res['passengerName'] }} — Row {{ res['seatRow'] }}, Col {{ res['seatColumn'] }} — Code: {{ res['eTicketNumber'] }}
+        <form method="post" action="{{ url_for('delete_reservation', id=res['id']) }}" style="display:inline">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      {% else %}
+      <li>No reservations yet.</li>
+      {% endfor %}
+    </ul>
+
 {% endblock %}
